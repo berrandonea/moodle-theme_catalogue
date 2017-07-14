@@ -50,11 +50,8 @@ $templatecontext = [
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
-$templatecontext['catalogue'] = theme_catalogue_catalogue(); 
+$templatecontext['catalogue'] = theme_catalogue_catalogue();
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 
 $output = $OUTPUT->render_from_template('theme_catalogue/columns2', $templatecontext);
-//~ $position = strpos($output, 'form-control-static');
-//~ print_object($CFG);
-//~ var_dump($position);
 echo $output;
