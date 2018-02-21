@@ -50,11 +50,32 @@ $templatecontext = [
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
-$templatecontext['catalogue'] = theme_catalogue_catalogue(); 
+$templatecontext['catalogue'] = theme_catalogue_catalogue();
+$templatecontext['iconsurl'] = "$CFG->wwwroot/theme/catalogue";
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
-
 $output = $OUTPUT->render_from_template('theme_catalogue/columns2', $templatecontext);
-//~ $position = strpos($output, 'form-control-static');
-//~ print_object($CFG);
-//~ var_dump($position);
+
 echo $output;
+
+
+//~ $coursehomebuttonboost = 'data-key="coursehome">
+                //~ <div class="m-l-0">
+                        //~ '.$COURSE->shortname.'
+                //~ </div>';
+//~ $coursehomebuttoncatalogue = 'data-key="coursehome">
+                //~ <div class="m-l-0">
+                       //~ '.'<table width="100%"><tr><td style="margin-right:5px">'.
+                       //~ '<img src="'."$CFG->wwwroot/blocks/catalogue/pix/coursehome.png".'" height="30px">'.
+                       //~ '</td><td style="text-align:center">'.$COURSE->shortname.'</td></tr></table>'.'
+                //~ </div>';
+
+
+//~ $extract = substr($output, 36896, 300);
+//~ $position = strpos($output, $coursehomebuttonboost);
+//~ print_object($COURSE);
+//~ echo "$extract<br><br>";
+//~ var_dump($position);
+
+
+//~ $output = str_replace($coursehomebuttonboost, $coursehomebuttoncatalogue, $output);
+//~ echo $output;

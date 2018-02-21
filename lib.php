@@ -63,14 +63,14 @@ function theme_catalogue_catalogue() {
 		$thislistname = $PAGE->url->get_param('name');
 	}
 	$maindivstyle = 'margin-top:10px;margin-left:50px;float:left';
-	$html = '';	    
+	$html = '';
     $listnames = block_catalogue_get_listnames();
     $coursecontext = context_course::instance($COURSE->id);
     $canview = has_capability('block/catalogue:view', $coursecontext);
-    if ($listnames && $canview) {
+    if ($listnames && $canview && $COURSE->id > 1) {
 		$bgcolor = get_config('catalogue', 'bgcolor');
-        $html = block_catalogue_main_table($listnames, $COURSE, $bgcolor, false);
-    }    
+        $html = block_catalogue_main_table($listnames, $COURSE, $bgcolor, true);
+    }
     $html .= '<br>';
     return $html;
 }

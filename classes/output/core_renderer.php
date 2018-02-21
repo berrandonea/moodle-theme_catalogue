@@ -101,19 +101,25 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function headercatalogue() {
-		global $COURSE, $PAGE;
-		$thislistname = '';
-		$pagepath = $PAGE->url->get_path();
-		if ($pagepath == '/blocks/catalogue/index.php') {
-			$thislistname = $PAGE->url->get_param('name');
-		}
-		$maindivstyle = 'margin-top:10px;margin-left:50px;float:left';
-		echo "<div style='$maindivstyle'>";
-		echo block_catalogue_display_tabs($COURSE->id, $thislistname, false);
-		echo '</div>';
-        echo "<div style='$maindivstyle'>";
-        echo $this->proximityarrows();
-        echo '</div>';
+		//~ global $COURSE, $PAGE;
+		//~ $thislistname = '';
+		//~ $pagepath = $PAGE->url->get_path();
+		//~ $cataloguepages = array('/blocks/catalogue/index.php',
+								//~ '/blocks/catalogue/chooseplace.php',
+								//~ '/blocks/catalogue/list/editing/chooseobject.php');		
+		//~ if (in_array($pagepath, $cataloguepages)) {
+			//~ $thislistname = $PAGE->url->get_param('name');
+			//~ if (!$thislistname) {
+				//~ $thislistname = $PAGE->url->get_param('list');
+			//~ }
+		//~ }
+		//~ $maindivstyle = 'margin-top:10px;margin-left:50px;float:left';
+		//~ echo "<div style='$maindivstyle'>";
+		//~ echo block_catalogue_display_tabs($COURSE->id, $thislistname, false);
+		//~ echo '</div>';
+        //~ echo "<div style='$maindivstyle'>";
+        //~ echo $this->proximityarrows();
+        //~ echo '</div>';
 	}
 
 	/**
