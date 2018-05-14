@@ -50,25 +50,6 @@ require_once("$CFG->dirroot/blocks/catalogue/lib.php");
 class core_renderer extends \theme_boost\output\core_renderer {
 
     protected $language = null;
-    
-    /*
-     * This renders the bootstrap top menu.
-     *
-     * This renderer is needed to enable the Bootstrap style navigation.
-     */
-    //~ protected function render_custom_menu(custom_menu $menu) {
-		//~ global $COURSE;
-		//~ $custommenu = parent::render_custom_menu($menu);
-		//~ $titletable = '<table><tr>';
-		//~ $titletable .= '<td>'.$custommenu.'</td>';
-		//~ if ($COURSE->id > 1) {
-			//~ $titletable .= '<td width="30px"></td>';
-			//~ $titletable .= '<td style="vertical-align:top">'.$this->context_header().'</td>';								
-		//	$titletable .= '<td>'.html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav')).'</td>';
-		//~ }		
-		//~ $titletable .= '</tr></table>';
-        //~ return $titletable;
-    //~ }
 
     /**
      * Wrapper for header elements.
@@ -76,20 +57,20 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string HTML to display the main header.
      */
     public function full_header() {
-		global $COURSE;
-		block_catalogue_check_sequences($COURSE);
+        global $COURSE;
+        block_catalogue_check_sequences($COURSE);
         $html = html_writer::start_tag('header', array('id' => 'page-header', 'class' => 'row'));
         $html .= html_writer::start_div('col-xs-12 p-a-1');
         $html .= html_writer::start_div('card');
         $html .= html_writer::start_div('card-block');
         $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu');
-		$html .= $this->context_header();
-		$coursecontext = context_course::instance($COURSE->id);
-		if (has_capability('block/catalogue:view', $coursecontext)) {
-			$html .= $this->headercatalogue();
-		}
-        $html .= html_writer::start_div('clearfix', array('id' => 'page-navbar'));        
-		$html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));		        
+        $html .= $this->context_header();
+        $coursecontext = context_course::instance($COURSE->id);
+        if (has_capability('block/catalogue:view', $coursecontext)) {
+            $html .= $this->headercatalogue();
+        }
+        $html .= html_writer::start_div('clearfix', array('id' => 'page-navbar'));
+        $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
         $html .= html_writer::div($this->page_heading_button(), 'breadcrumb-button');
         $html .= html_writer::end_div();
         $html .= html_writer::tag('div', $this->course_header(), array('id' => 'course-header'));
@@ -101,6 +82,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function headercatalogue() {
+<<<<<<< HEAD
 		//~ global $COURSE, $PAGE;
 		//~ $thislistname = '';
 		//~ $pagepath = $PAGE->url->get_path();
@@ -227,4 +209,20 @@ class core_renderer extends \theme_boost\output\core_renderer {
 	}
 	
 
+=======
+        global $COURSE, $PAGE;
+        $thislistname = '';
+        $pagepath = $PAGE->url->get_path();
+        if ($pagepath == '/blocks/catalogue/index.php') {
+            $thislistname = $PAGE->url->get_param('name');
+        }
+        $maindivstyle = 'margin-top:10px;margin-left:50px;float:left';
+        echo "<div style='$maindivstyle'>";
+        echo block_catalogue_display_tabs($COURSE->id, $thislistname, false);
+        echo '</div>';
+        echo "<div style='$maindivstyle'>";
+        echo block_catalogue_navigation();
+        echo '</div>';
+    }
+>>>>>>> 98d634fee01c8e6eab13f9daf7a040a25a557b46
 }

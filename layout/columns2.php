@@ -51,10 +51,16 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 $templatecontext['catalogue'] = theme_catalogue_catalogue();
+<<<<<<< HEAD
 $templatecontext['iconsurl'] = "$CFG->wwwroot/theme/catalogue";
+=======
+>>>>>>> 98d634fee01c8e6eab13f9daf7a040a25a557b46
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 $output = $OUTPUT->render_from_template('theme_catalogue/columns2', $templatecontext);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 98d634fee01c8e6eab13f9daf7a040a25a557b46
 echo $output;
 
 
